@@ -106,3 +106,18 @@ DELIMITER //
  begin
 	update product set status = status ^ 1 where id = id_in;
  end //
+ 
+ # Tim product theo ten
+ create procedure PROC_PRODUCT_FIND_BY_NAME(IN name_in varchar(100))
+ begin
+	select * from product where lcase(name) = (lcase(name_in));
+ end //
+ 
+ # dem product tim dk theo ten
+ create procedure PROC_PRODUCT_FIND_COUNT(IN name_in varchar(100))
+ begin
+	select * from product
+    where lcase(name) like concat('%',lcase(name_in),'%')
+    or id = name_in
+    or lcase(description) like concat('%',Lcase(name_in),'%');
+ end //

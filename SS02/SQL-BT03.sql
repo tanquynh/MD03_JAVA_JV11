@@ -85,7 +85,7 @@ select * from product;
 select sale_price,name from product;
 
 -- hien thi san pham (id, name, price,sale_price,prcent_price)
-select id,name,,,,price,(1-sale_price/price)*100 as percent_price from product;
+select id,name,price,(1-sale_price/price)*100 as percent_price from product;
 
 -- cap nhat gia sp theo id = 1
 UPDATE product
